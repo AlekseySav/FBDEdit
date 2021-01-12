@@ -1,0 +1,43 @@
+﻿<Window x:Class="FBDEdit.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FBDEdit"
+        mc:Ignorable="d"
+        Title="MainWindow" Width="800" Height="600">
+    <Window.CommandBindings>
+        <CommandBinding Command="{x:Static local:MainWindow.NewTemplateCommand}" Executed="NewTemplateCommand_Executed"/>
+        <CommandBinding Command="{x:Static local:MainWindow.NewClearCommand}" Executed="NewClearCommand_Executed"/>
+        <CommandBinding Command="{x:Static local:MainWindow.SerializeCommand}" Executed="SerializeCommand_Executed"/>
+        <CommandBinding Command="{x:Static local:MainWindow.DeserializeCommand}" Executed="DeserializeCommand_Executed"/>
+        <CommandBinding Command="{x:Static local:MainWindow.AddItemCommand}" Executed="AddItemCommand_Executed"/>
+    </Window.CommandBindings>
+    <Window.InputBindings>
+        <KeyBinding Command="{x:Static local:MainWindow.NewTemplateCommand}" Gesture="Ctrl+N"/>
+        <KeyBinding Command="{x:Static local:MainWindow.NewClearCommand}" Gesture="Ctrl+Shift+N"/>
+        <KeyBinding Command="{x:Static local:MainWindow.SerializeCommand}" Gesture="Ctrl+S"/>
+        <KeyBinding Command="{x:Static local:MainWindow.DeserializeCommand}" Gesture="Ctrl+D"/>
+        <KeyBinding Command="{x:Static local:MainWindow.AddItemCommand}" Gesture="Ctrl+Shift+A"/>
+    </Window.InputBindings>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="18"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0">
+            <MenuItem Header="File">
+                <MenuItem Header="New...">
+                    <MenuItem Header="Template" InputGestureText="Ctrl+N" Command="{x:Static local:MainWindow.NewTemplateCommand}"/>
+                    <MenuItem Header="Clear" InputGestureText="Ctrl+Shift+N" Command="{x:Static local:MainWindow.NewClearCommand}"/>
+                </MenuItem>
+                <MenuItem Header="Serialize" InputGestureText="Ctrl+S" Command="{x:Static local:MainWindow.SerializeCommand}"/>
+                <MenuItem Header="Deserialize" InputGestureText="Ctrl+D" Command="{x:Static local:MainWindow.DeserializeCommand}"/>
+            </MenuItem>
+            <MenuItem Header="Edit">
+                <MenuItem Header="Add Item" InputGestureText="Ctrl+Shift+A" Command="{x:Static local:MainWindow.AddItemCommand}"/>
+            </MenuItem>
+        </Menu>
+        <Canvas Name="Source" Grid.Row="1"/>
+    </Grid>
+</Window>

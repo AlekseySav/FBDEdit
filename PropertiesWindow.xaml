@@ -1,0 +1,32 @@
+﻿<Window x:Class="FBDEdit.PropertiesWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FBDEdit"
+        mc:Ignorable="d"
+        Title="Properties" Width="535" Height="350" Closed="Window_Closed">
+    <Canvas>
+        <TextBlock Text="Item Type:" Canvas.Left="10" Canvas.Top="30"/>
+        <ComboBox Canvas.Left="75" Canvas.Top="30" Width="100" Name="TypeBox">
+            <ComboBoxItem Content="Variable"/>
+            <ComboBoxItem Content="Function"/>
+            <ComboBoxItem Content="Function Header"/>
+        </ComboBox>
+        <TextBlock Text="Inputs:" Canvas.Left="10" Canvas.Top="60"/>
+        <TextBox Canvas.Left="75" Canvas.Top="60" Width="100" Name="InputsTextBox"/>
+        <TextBlock Text="Outputs:" Canvas.Left="10" Canvas.Top="90"/>
+        <TextBox Canvas.Left="75" Canvas.Top="90" Width="100" Name="OutputsTextBox"/>
+        <TextBlock Text="Show Input names:" Canvas.Left="190" Canvas.Top="60"/>
+        <ComboBox Canvas.Left="310" Canvas.Top="60" Width="100" Name="InputNamesBox">
+            <ComboBoxItem Content="False"/>
+            <ComboBoxItem Content="True"/>
+        </ComboBox>
+        <TextBlock Text="Show Output names:" Canvas.Left="190" Canvas.Top="90"/>
+        <ComboBox Canvas.Left="310" Canvas.Top="90" Width="100" Name="OutputNamesBox">
+            <ComboBoxItem Content="False"/>
+            <ComboBoxItem Content="True"/>
+        </ComboBox>
+        <Button Content="Delete Item" Canvas.Right="50" Canvas.Top="180" Click="DeleteButton_Click"/>
+    </Canvas>
+</Window>
